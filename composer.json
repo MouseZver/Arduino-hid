@@ -1,0 +1,19 @@
+{
+    "name": "nouvu/arduino-hid",
+    "type": "library",
+	"homepage": "https://github.com/MouseZver/Arduino-HID",
+    "require": {
+        "php": "^8.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MouseZver"
+        }
+    ],
+	"autoload": {
+		"psr-4": {
+			"Nouvu\\ArduinoHID\\": "src"
+		}
+	}
+}

@@ -1,0 +1,23 @@
+<?php
+
+declare ( strict_types = 1 );
+
+use Nouvu\ArduinoHID\{ USBHID, Mouse, Keyboard };
+
+require 'src/Exception/ArduinoException.php';
+require 'src/Exception/ArduinoKeyException.php';
+require 'src/USBHID.php';
+require 'src/Arduino.php';
+require 'src/Mouse.php';
+require 'src/Keyboard.php';
+
+$hid = new USBHID( com: 6 );
+$mouse = new Mouse( hid: $hid );
+$keyboard = new Keyboard( hid: $hid );
+
+$hid -> start();
+
+sleep (3);
+$keyboard -> click( 'h', 'e', 'l', 'l', 'o' );
+
+$mouse -> leftPress();
