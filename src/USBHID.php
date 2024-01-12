@@ -39,18 +39,19 @@ class USBHID
 	
 	public function send( string $command, int $microseconds = 0 ): void
 	{
-		if ( is_resource ( $this -> serial ) )
+		if ( ! is_resource ( $this -> serial ) )
 		{
-			fwrite ( $this -> serial, $command . $this -> suffix );
-			
-			//echo $command . $this -> suffix;
-			
-			usleep ( $microseconds );
-			
-			return;
+			throw new Error( 'Serial is not resource.' );
 		}
 		
-		throw new Error( 'Serial is not resource.' );
+		if ( fwrite ( $this -> serial, $command . $this -> suffix ) === false )
+		{
+			throw new ArduinoException( 'Error when sending data: ' . $command );
+		}
+		
+		//echo $command . $this -> suffix;
+		
+		usleep ( $microseconds );
 	}
 	
 	public function close(): void
