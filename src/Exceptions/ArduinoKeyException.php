@@ -2,7 +2,7 @@
 
 declare ( strict_types = 1 );
 
-namespace Nouvu\ArduinoHID\Exception;
+namespace Nouvu\ArduinoHID\Exceptions;
 
 class ArduinoKeyException extends ArduinoException
 {

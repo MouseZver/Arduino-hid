@@ -4,6 +4,8 @@ declare ( strict_types = 1 );
 
 namespace Nouvu\ArduinoHID;
 
+use Nouvu\ArduinoHID\Exceptions\{ ArduinoException, ArduinoKeyException };
+
 class Keyboard extends Arduino
 {
 	private array $keyList = [

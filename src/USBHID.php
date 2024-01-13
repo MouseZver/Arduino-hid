@@ -4,7 +4,7 @@ declare ( strict_types = 1 );
 
 namespace Nouvu\ArduinoHID;
 
-use Error;
+use Nouvu\ArduinoHID\Exceptions\ArduinoException;
 
 class USBHID
 {
@@ -41,7 +41,7 @@ class USBHID
 	{
 		if ( ! is_resource ( $this -> serial ) )
 		{
-			throw new Error( 'Serial is not resource.' );
+			throw new ArduinoException( 'Serial is not resource.' );
 		}
 		
 		if ( fwrite ( $this -> serial, $command . $this -> suffix ) === false )
