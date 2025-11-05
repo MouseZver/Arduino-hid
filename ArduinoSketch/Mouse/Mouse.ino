@@ -100,7 +100,7 @@ void loop()
 			8 - 0x* - Действие (k4)
 		*/
 		char buffer[BUFFER_SIZE] = {0};
-		uint8_t readBytes = Serial.readBytesUntil( '\n', buffer, BUFFER_SIZE );
+		uint8_t readBytes = Serial.readBytesUntil( 0x4D, buffer, BUFFER_SIZE );
 		
 		if ( buffer[0] != PREAMBLE )
 		{
